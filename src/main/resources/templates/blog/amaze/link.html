@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{blog/amaze/header::head-fragment}">
+<style>
+
+</style>
+</head>
+<body id="blog">
+<div th:replace="~{blog/amaze/header::nav-fragment}"></div>
+<div th:replace="~{blog/amaze/header::header-fragment}"></div>
+<div class="">
+    <div class="">
+        <main class="">
+<!--知识学习-->
+            <div class="recommend-center">
+            <div class="recommend-left">
+            <th:block th:unless="${#lists.isEmpty(recommendLinks)}">
+                <div class="recommend-title">
+                    <h4>知识学习网站</h4>
+                </div>
+                <div class="recommend-list">
+                    <ul>
+                        <!-- 循环遍历每个推荐链接 -->
+                        <th:block th:each="recommendLink : ${recommendLinks}">
+                            <li class="recommend-li">
+                                <!-- 链接标题 -->
+                                <h5><a th:href="@{${recommendLink.linkUrl}}" target="_blank" th:text="${recommendLink.linkName}"></a></h5>
+                                <!-- 链接描述 -->
+                                <p th:text="${recommendLink.linkDescription}"></p>
+                            </li>
+                        </th:block>
+                    </ul>
+                </div>
+            </th:block>
+            </div>
+            <div class="recommend-right">
+<!--技术学习-->
+            <th:block th:unless="${#lists.isEmpty(learningLinks)}">
+                <div class="recommend-title">
+                    <h4>技术学习网站</h4>
+                </div>
+                <div class="recommend-list">
+                    <ul>
+                        <!-- 循环遍历每个推荐链接 -->
+                        <th:block th:each="learningLink : ${learningLinks}">
+                            <li class="recommend-li">
+                                <!-- 链接标题 -->
+                                <h5><a th:href="@{${learningLink.linkUrl}}" target="_blank" th:text="${learningLink.linkName}"></a></h5>
+                                <!-- 链接描述 -->
+                                <p th:text="${learningLink.linkDescription}"></p>
+                            </li>
+                        </th:block>
+                    </ul>
+                </div>
+            </th:block>
+            </div>
+            </div>
+
+
+            <div class="recommend-center">
+                <div class="recommend-left">
+<!--开发工具-->
+            <th:block th:unless="${#lists.isEmpty(toolLinks)}">
+                <div class="recommend-title">
+                    <h4>开发工具网站</h4>
+                </div>
+                <div class="recommend-list">
+                    <ul>
+                        <!-- 循环遍历每个推荐链接 -->
+                        <th:block th:each="toolLink : ${toolLinks}">
+                            <li class="recommend-li">
+                                <!-- 链接标题 -->
+                                <h5><a th:href="@{${toolLink.linkUrl}}" target="_blank" th:text="${toolLink.linkName}"></a></h5>
+                                <!-- 链接描述 -->
+                                <p th:text="${toolLink.linkDescription}"></p>
+                            </li>
+                        </th:block>
+                    </ul>
+                </div>
+            </th:block>
+                </div>
+                <div class="recommend-right">
+<!--友情链接-->
+            <th:block th:unless="${#lists.isEmpty(favoriteLinks)}">
+                <div class="recommend-title">
+                    <h4>友情链接网站</h4>
+                </div>
+                <div class="recommend-list">
+                    <ul>
+                        <!-- 循环遍历每个推荐链接 -->
+                        <th:block th:each="favoriteLink : ${favoriteLinks}">
+                            <li class="recommend-li">
+                                <!-- 链接标题 -->
+                                <h5><a th:href="@{${favoriteLink.linkUrl}}" target="_blank" th:text="${favoriteLink.linkName}"></a></h5>
+                                <!-- 链接描述 -->
+                                <p th:text="${favoriteLink.linkDescription}"></p>
+                            </li>
+                        </th:block>
+                    </ul>
+                </div>
+            </th:block>
+                </div>
+            </div>
+
+        </main>
+    </div>
+</div>
+<!-- 引入页脚footer-fragment -->
+<footer th:replace="~{blog/amaze/footer::footer-fragment}"></footer>
+</body>
+</html>
