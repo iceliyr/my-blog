@@ -26,11 +26,11 @@
                                 <li>
                                     <!-- 链接标题 -->
                                     <h4 th:text="${projectLink.linkName}"></h4>
-                                    <h5>Project GitHub</h5>
+                                    <strong>项目地址：</strong><br>
                                     <a th:href="@{${projectLink.linkUrl}}" target="_blank" th:text="${projectLink.linkUrl}"></a>
                                     <!-- 链接描述 -->
-                                    <h5>Project Description</h5>
-                                    <p th:utext="${projectLink.linkDescription}"></p>
+                                    <br>
+                                    <th:block th:utext="${projectLink.linkDescription}"/>
                                 </li>
                             </th:block>
                         </ul>
