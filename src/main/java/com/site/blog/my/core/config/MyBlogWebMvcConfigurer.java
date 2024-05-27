@@ -25,5 +25,6 @@ public class MyBlogWebMvcConfigurer implements WebMvcConfigurer {
 
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/upload/**").addResourceLocations("file:" + Constants.FILE_UPLOAD_DIC);
+        registry.addResourceHandler("/video/**").addResourceLocations("file:"+Constants.VIDEO_UPLOAD_DIV);
     }
 }
