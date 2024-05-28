@@ -40,7 +40,7 @@
         <include refid="Base_Column_List"/>
         from tb_link
         where is_deleted=0
-        order by link_id desc
+        order by link_rank desc
         <if test="start!=null and limit!=null">
             limit #{start},#{limit}
         </if>
