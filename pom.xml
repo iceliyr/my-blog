@@ -5,7 +5,7 @@
 
     <groupId>com.site.blog.my.core</groupId>
     <artifactId>LiYiRU-Blog</artifactId>
-    <version>5.0.3-SNAPSHOT</version>
+    <version>5.0.8-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>LiYiRU-Blog</name>
