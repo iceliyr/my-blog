@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{blog/amaze/header::head-fragment}"></head>
+<body id="blog">
+<div th:replace="~{blog/amaze/header::nav-fragment}"></div>
+<div th:replace="~{blog/amaze/header::header-fragment}"></div>
+<div class="am-g am-g-fixed blog-fixed">
+<!--    <div class="am-u-lg-8 am-u-sm-12">-->
+<!--知识学习-->
+            <th:block th:unless="${#lists.isEmpty(projectLinks)}">
+                <div class="project-list">
+                    <ul>
+                        <!-- 循环遍历每个推荐链接 -->
+                        <th:block th:each="projectLink : ${projectLinks}">
+                            <li>
+                                <a th:href="@{${projectLink.linkUrl}}" target="_blank" th:text="${projectLink.linkName}"></a>
+                                <!-- 链接描述 -->
+                                <p>
+                                    <th:block th:utext="${projectLink.linkDescription}"/>
+                                </p>
+                            </li>
+                        </th:block>
+                    </ul>
+                </div>
+            </th:block>
+
+<!--    </div>-->
+</div>
+<!-- 引入页脚footer-fragment -->
+<footer th:replace="~{blog/amaze/footer::footer-fragment}"></footer>
+</body>
+</html>

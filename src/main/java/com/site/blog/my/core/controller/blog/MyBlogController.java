@@ -237,6 +237,20 @@ public class MyBlogController {
         return "blog/" + theme + "/project";
     }
 
+    @GetMapping({"/tools"})
+    public String tools(HttpServletRequest request) {
+        request.setAttribute("pageName", "应用工具");
+        Map<Byte, List<BlogLink>> linkMap = linkService.getLinksForLinkPage();
+        if (linkMap != null) {
+            //判断类别并封装数据 9-个人项目
+            if(linkMap.containsKey((byte) 9)){
+                request.setAttribute("projectLinks",linkMap.get((byte) 9));
+            }
+        }
+        request.setAttribute("configurations", configService.getAllConfigs());
+        return "blog/" + theme + "/tools";
+    }
+
 
     /**
      * 评论操作

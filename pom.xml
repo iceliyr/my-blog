@@ -5,7 +5,7 @@
 
     <groupId>com.site.blog.my.core</groupId>
     <artifactId>LiYiRU-Blog</artifactId>
-    <version>5.0.8-SNAPSHOT</version>
+    <version>5.1.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>LiYiRU-Blog</name>
@@ -85,6 +85,12 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.30</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.15</version> <!-- 使用最新版本或你需要的版本 -->
         </dependency>
 
     </dependencies>
