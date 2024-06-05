@@ -75,6 +75,16 @@ public class CommentServiceImpl implements CommentService {
         if (!CollectionUtils.isEmpty(comments)) {
             int total = blogCommentMapper.getTotalBlogComments(pageUtil);
             PageResult pageResult = new PageResult(comments, total, pageUtil.getLimit(), pageUtil.getPage());
+            List list=pageResult.getList();
+            for (int i = 0; i < list.size(); i++) {
+                BlogComment blogComment=(BlogComment) list.get(i);
+                Date date=blogComment.getCommentCreateTime();
+                Date reply=blogComment.getReplyCreateTime();
+                date.setTime(date.getTime()-8*60*60*1000);
+                reply.setTime(reply.getTime()-8*60*60*1000);
+                blogComment.setCommentCreateTime(date);
+                blogComment.setReplyCreateTime(reply);
+            }
             return pageResult;
         }
         return null;

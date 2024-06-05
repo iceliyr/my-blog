@@ -17,7 +17,7 @@ public class BlogComment {
 
     private String commentBody;
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+0")
     private Date commentCreateTime;
 
     private String commentatorIp;

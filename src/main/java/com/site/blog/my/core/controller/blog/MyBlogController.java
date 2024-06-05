@@ -326,26 +326,31 @@ public class MyBlogController {
     }
 
     @GetMapping({"/about"})
-    public String about(HttpServletRequest request) {
+    public String about(HttpServletRequest request, @RequestParam(value = "commentPage", required = false, defaultValue = "1") Integer commentPage) {
 
         BlogDetailVO blogDetailVO = blogService.getBlogDetailBySubUrl("about");
+        Long blogId=1L;
         if (blogDetailVO != null) {
             request.setAttribute("blogDetailVO", blogDetailVO);
             request.setAttribute("pageName", "关于作者");
             request.setAttribute("configurations", configService.getAllConfigs());
+            request.setAttribute("commentPageResult", commentService.getCommentPageByBlogIdAndPageNum(blogId, commentPage));
             return "blog/" + theme + "/about";
         } else {
             return "error/error_400";
         }
     }
+
     @GetMapping({"/aboutBlog"})
-    public String aboutBlog(HttpServletRequest request) {
+    public String aboutBlog(HttpServletRequest request, @RequestParam(value = "commentPage", required = false, defaultValue = "1") Integer commentPage) {
 
         BlogDetailVO blogDetailVO = blogService.getBlogDetailBySubUrl("blog");
+        Long blogId=7L;
         if (blogDetailVO != null) {
             request.setAttribute("blogDetailVO", blogDetailVO);
             request.setAttribute("pageName", "关于博客");
             request.setAttribute("configurations", configService.getAllConfigs());
+            request.setAttribute("commentPageResult", commentService.getCommentPageByBlogIdAndPageNum(blogId, commentPage));
             return "blog/" + theme + "/about-blog";
         } else {
             return "error/error_400";
