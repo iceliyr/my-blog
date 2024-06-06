@@ -29,6 +29,8 @@ public interface BlogMapper {
 
     int deleteBatch(Integer[] ids);
 
+    int getTotalView();
+
     List<Blog> getBlogsPageByTagId(PageQueryUtil pageUtil);
 
     int getTotalBlogsByTagId(PageQueryUtil pageUtil);

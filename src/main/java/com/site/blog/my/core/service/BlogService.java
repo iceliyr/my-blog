@@ -18,6 +18,11 @@ public interface BlogService {
     int getTotalBlogs();
 
     /**
+     * 获取文章总浏览量
+     */
+    int getTotalView();
+
+    /**
      * 根据id获取详情
      *
      * @param blogId

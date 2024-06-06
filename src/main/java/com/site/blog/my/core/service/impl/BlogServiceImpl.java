@@ -100,6 +100,8 @@ public class BlogServiceImpl implements BlogService {
         return pageResult;
     }
 
+
+
     @Override
     public Boolean deleteBatch(Integer[] ids) {
         return blogMapper.deleteBatch(ids) > 0;
@@ -108,6 +110,11 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public int getTotalBlogs() {
         return blogMapper.getTotalBlogs(null);
+    }
+
+    @Override
+    public int getTotalView() {
+        return blogMapper.getTotalView();
     }
 
     @Override

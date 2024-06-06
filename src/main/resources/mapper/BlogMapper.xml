@@ -109,6 +109,10 @@
         where blog_sub_url = #{subUrl,jdbcType=VARCHAR} and is_deleted = 0 limit 1
     </select>
 
+    <select id="getTotalView" resultType="java.lang.Integer">
+        SELECT sum(blog_views) FROM blog.tb_blog;
+    </select>
+
     <update id="deleteByPrimaryKey" parameterType="java.lang.Long">
     UPDATE tb_blog SET is_deleted = 1
     where blog_id = #{blogId,jdbcType=BIGINT} and is_deleted = 0
